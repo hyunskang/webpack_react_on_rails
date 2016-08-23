@@ -17,10 +17,10 @@ module ReactReduxWebpackScaffolder
     def npm_package
       <<-NPM_PACKAGE.strip_heredoc
 {
-#{application_details}
-#{babel_details}
-#{dev_dependencies}
-#{dependencies}
+  #{application_details}
+  #{babel_details}
+  #{dev_dependencies}
+  #{dependencies}
 }
       NPM_PACKAGE
     end
@@ -67,14 +67,14 @@ module ReactReduxWebpackScaffolder
     def dependencies
       <<-DEPENDENCIES.strip_heredoc
   "dependencies": {
-    babel-plugin-transform-object-assign": "^6.8.0",
-    immutable": "^3.8.1",
-    isomorphic-fetch": "^2.2.1",
-    react": "^15.3.1",
-    react-dom": "^15.3.1",
-    react-redux": "^4.4.5",
-    redux": "^3.5.2",
-    redux-thunk": "^2.1.0"
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "immutable": "^3.8.1",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0"
   }
       DEPENDENCIES
     end
