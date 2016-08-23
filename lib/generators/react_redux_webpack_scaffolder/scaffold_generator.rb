@@ -87,7 +87,6 @@ module ReactReduxWebpackScaffolder
     # Webpack Config related output methods
     def webpack_config
       <<-WEBPACK_CONFIG.strip_heredoc
-
       #{require_modules}
       #{config_exports}
       #{config_module}
@@ -99,16 +98,14 @@ module ReactReduxWebpackScaffolder
 
     def require_modules
       <<-REQUIRE_MODULES.strip_heredoc
-
-      var path = require('path');
+    var path = require('path');
       var webpack = require('webpack');
       REQUIRE_MODULES
     end
 
     def config_exports
       <<-CONFIG_EXPORTS.strip_heredoc
-
-      var config = module.exports = {
+    var config = module.exports = {
         // the base path which will be used to resolve entry points
         context: __dirname,
 
@@ -123,8 +120,7 @@ module ReactReduxWebpackScaffolder
 
     def config_module
       <<-CONFIG_MODULE.strip_heredoc
-
-      config.module = {
+    config.module = {
         loaders: [{
           test: /\.jsx?$/,
           exclude: /node_modules/,
@@ -136,8 +132,7 @@ module ReactReduxWebpackScaffolder
 
     def config_output
       <<-CONFIG_OUTPUT.strip_heredoc
-
-      // this config dicates where compiled bundles end up
+    // this config dicates where compiled bundles end up
       config.output = {
         // this is our app/assets/javascripts directory, which is part of the Sprockets pipeline
         path: path.join(__dirname, 'app', 'assets', 'javascripts'),
@@ -153,8 +148,7 @@ module ReactReduxWebpackScaffolder
 
     def config_resolve
       <<-CONFIG_RESOLVE.strip_heredoc
-
-      config.resolve = {
+    config.resolve = {
         extensions: ['', '.js', '.jsx'],
         modulesDirectories: ['node_modules'],
       };
@@ -163,8 +157,7 @@ module ReactReduxWebpackScaffolder
 
     def config_plugins
       <<-CONFIG_PLUGINS.strip_heredoc
-
-      config.plugins = [
+    config.plugins = [
         new webpack.HotModuleReplacementPlugin()
       ];
       CONFIG_PLUGINS
