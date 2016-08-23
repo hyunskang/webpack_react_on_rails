@@ -16,6 +16,7 @@ module ReactReduxWebpackScaffolder
     # NPM Package related output methods
     def npm_package
       <<-NPM_PACKAGE.strip_heredoc
+
       {
         #{application_details}
         #{babel_details}
@@ -27,6 +28,7 @@ module ReactReduxWebpackScaffolder
 
     def application_details
       <<-APP_DETAILS.strip_heredoc
+
         "name": "#{rails_application_name}",
         "description": "TODO: Add a brief description for the application",
         "version": "1.0.0",
@@ -35,6 +37,7 @@ module ReactReduxWebpackScaffolder
 
     def babel_details
       <<-BABEL_DETAILS.strip_heredoc
+
         "babel": {
           "presets": [
             "es2015",
@@ -49,6 +52,7 @@ module ReactReduxWebpackScaffolder
 
     def dev_dependencies
       <<-DEV_DEPENDENCIES.strip_heredoc
+
         "devDependencies": {
           "babel-core": "^6.13.2",
           "babel-loader": "^6.2.5",
@@ -66,6 +70,7 @@ module ReactReduxWebpackScaffolder
 
     def dependencies
       <<-DEPENDENCIES.strip_heredoc
+
         "dependencies": {
           "babel-plugin-transform-object-assign": "^6.8.0",
           "immutable": "^3.8.1",
@@ -82,6 +87,7 @@ module ReactReduxWebpackScaffolder
     # Webpack Config related output methods
     def webpack_config
       <<-WEBPACK_CONFIG.strip_heredoc
+      
       #{require_modules}
 
       #{config_exports}
@@ -98,6 +104,7 @@ module ReactReduxWebpackScaffolder
 
     def require_modules
       <<-REQUIRE_MODULES.strip_heredoc
+
       var path = require('path');
       var webpack = require('webpack');
       REQUIRE_MODULES
@@ -105,6 +112,7 @@ module ReactReduxWebpackScaffolder
 
     def config_exports
       <<-CONFIG_EXPORTS.strip_heredoc
+
       var config = module.exports = {
         // the base path which will be used to resolve entry points
         context: __dirname,
@@ -120,6 +128,7 @@ module ReactReduxWebpackScaffolder
 
     def config_module
       <<-CONFIG_MODULE.strip_heredoc
+
       config.module = {
         loaders: [{
           test: /\.jsx?$/,
@@ -132,6 +141,7 @@ module ReactReduxWebpackScaffolder
 
     def config_output
       <<-CONFIG_OUTPUT.strip_heredoc
+
       // this config dicates where compiled bundles end up
       config.output = {
         // this is our app/assets/javascripts directory, which is part of the Sprockets pipeline
@@ -148,6 +158,7 @@ module ReactReduxWebpackScaffolder
 
     def config_resolve
       <<-CONFIG_RESOLVE.strip_heredoc
+
       config.resolve = {
         extensions: ['', '.js', '.jsx'],
         modulesDirectories: ['node_modules'],
@@ -157,6 +168,7 @@ module ReactReduxWebpackScaffolder
 
     def config_plugins
       <<-CONFIG_PLUGINS.strip_heredoc
+
       config.plugins = [
         new webpack.HotModuleReplacementPlugin()
       ];
