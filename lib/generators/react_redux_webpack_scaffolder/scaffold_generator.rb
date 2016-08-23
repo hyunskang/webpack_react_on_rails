@@ -18,10 +18,10 @@ module ReactReduxWebpackScaffolder
       <<-NPM_PACKAGE.strip_heredoc
 
       {
-          {application_details}
-          {babel_details}
-          {dev_dependencies}
-          {dependencies}
+          #{application_details}
+          #{babel_details}
+          #{dev_dependencies}
+          #{dependencies}
       }
       NPM_PACKAGE
     end
