@@ -18,10 +18,10 @@ module ReactReduxWebpackScaffolder
       <<-NPM_PACKAGE.strip_heredoc
 
       {
-        #{application_details}
-        #{babel_details}
-        #{dev_dependencies}
-        #{dependencies}
+          #{application_details}
+          #{babel_details}
+          #{dev_dependencies}
+          #{dependencies}
       }
       NPM_PACKAGE
     end
@@ -87,17 +87,12 @@ module ReactReduxWebpackScaffolder
     # Webpack Config related output methods
     def webpack_config
       <<-WEBPACK_CONFIG.strip_heredoc
-      
+
       #{require_modules}
-
       #{config_exports}
-
       #{config_module}
-
       #{config_output}
-
       #{config_resolve}
-
       #{config_plugins}
       WEBPACK_CONFIG
     end
