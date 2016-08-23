@@ -7,9 +7,9 @@ require "react_redux_webpack_scaffolder/version"
 Gem::Specification.new do |s|
   s.name        = "react_redux_webpack_scaffolder"
   s.version     = ReactReduxWebpackScaffolder::VERSION
-  s.authors     = ["brokenfingers"]
-  s.email       = ["hskang@dotandbo.com"]
-  s.homepage    = "TODO"
+  s.authors     = ["Hyun Sik Kang"]
+  s.email       = ["hyunsikk91@gmail.com"]
+  s.homepage    = "https://github.com/brokenfingers/react_redux_webpack_scaffolder/tree/master/lib"
   s.summary     = "TODO: Summary of ReactReduxWebpackScaffolder."
   s.description = "TODO: Description of ReactReduxWebpackScaffolder."
   s.license     = "MIT"
