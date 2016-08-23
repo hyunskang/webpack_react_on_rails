@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Hyun Sik Kang"]
   s.email       = ["hyunsikk91@gmail.com"]
   s.homepage    = "https://github.com/brokenfingers/react_redux_webpack_scaffolder/tree/master/lib"
-  s.summary     = "TODO: Summary of ReactReduxWebpackScaffolder."
-  s.description = "TODO: Description of ReactReduxWebpackScaffolder."
+  s.summary     = "Scaffolder for React, Redux, and Webpack"
+  s.description = "Easily add React, Redux, and Webpack using a command line."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
