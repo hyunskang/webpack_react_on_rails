@@ -26,7 +26,7 @@ module ReactReduxWebpackScaffolder
     end
 
     def application_details
-      <<-APP_DETAILS.strip_heredoc
+      <<-APP_DETAILS
         "name": "#{rails_application_name}",
         "description": "TODO: Add a brief description for the application",
         "version": "1.0.0",
@@ -34,7 +34,7 @@ module ReactReduxWebpackScaffolder
     end
 
     def babel_details
-      <<-BABEL_DETAILS.strip_heredoc
+      <<-BABEL_DETAILS
         "babel": {
           "presets": [
             "es2015",
@@ -48,7 +48,7 @@ module ReactReduxWebpackScaffolder
     end
 
     def dev_dependencies
-      <<-DEV_DEPENDENCIES.strip_heredoc
+      <<-DEV_DEPENDENCIES
         "devDependencies": {
           "babel-core": "^6.13.2",
           "babel-loader": "^6.2.5",
@@ -65,7 +65,7 @@ module ReactReduxWebpackScaffolder
     end
 
     def dependencies
-      <<-DEPENDENCIES.strip_heredoc
+      <<-DEPENDENCIES
         "dependencies": {
           "babel-plugin-transform-object-assign": "^6.8.0",
           "immutable": "^3.8.1",
