@@ -125,6 +125,7 @@ var config = module.exports = {
         // anything not required by this file will never end up in the compiled bundle
         entry: [
           'webpack/hot/only-dev-server',
+          // The entry point for the application js i.e. './app/frontend/javascripts/app.js'
         ]
       };
       CONFIG_EXPORTS
