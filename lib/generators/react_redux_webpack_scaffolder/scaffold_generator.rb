@@ -5,6 +5,19 @@ module ReactReduxWebpackScaffolder
     def create_scaffold_file
       create_file "#{Rails.root}/package.json", npm_package
       create_file "#{Rails.root}/webpack.config.js", webpack_config
+
+      # Update .gitignore to include app/assets/javascripts, /node_modules
+      gitignore_path = File.join(Rails.root, '.gitignore')
+      File.open(gitignore_path, 'a') do |f|
+        f.write "/app/aseets/javascripts"
+        f.write "/node_modules"
+      end
+
+      # Update config/initializers/assets.rb and add Rails.application.config.assets.precompile += %w( bundle.js )
+      config_assets_path = File.join(Rails.root, 'config', 'initializers', 'assets.rb')
+      File.open(config_assets_path, 'a') do |f|
+        f.write "Rails.application.config.assets.precompile += %w( bundle.js )"
+      end
     end
 
     private
