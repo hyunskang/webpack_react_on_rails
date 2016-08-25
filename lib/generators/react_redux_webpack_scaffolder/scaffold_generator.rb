@@ -3,17 +3,20 @@ require 'rails/generators'
 module ReactReduxWebpackScaffolder
   class ScaffoldGenerator < Rails::Generators::Base
     def create_scaffold_file
+      # Check if npm is installed or not if not display warning message
       create_file "#{Rails.root}/package.json", npm_package
       create_file "#{Rails.root}/webpack.config.js", webpack_config
 
       # Update .gitignore to include app/assets/javascripts, /node_modules
+      # Extract this method and add to comment
       gitignore_path = File.join(Rails.root, '.gitignore')
       File.open(gitignore_path, 'a') do |f|
-        f.write "/app/aseets/javascripts"
-        f.write "/node_modules"
+        f.write "/app/assets/javascripts\n"
+        f.write "/node_modules\n"
       end
 
       # Update config/initializers/assets.rb and add Rails.application.config.assets.precompile += %w( bundle.js )
+      # Add comment and extract method
       config_assets_path = File.join(Rails.root, 'config', 'initializers', 'assets.rb')
       File.open(config_assets_path, 'a') do |f|
         f.write "Rails.application.config.assets.precompile += %w( bundle.js )"
@@ -26,6 +29,7 @@ module ReactReduxWebpackScaffolder
       Rails.application.class.parent
     end
 
+    # Extract all these to 2 modules
     # NPM Package related output methods
     def npm_package
       <<-NPM_PACKAGE.strip_heredoc
