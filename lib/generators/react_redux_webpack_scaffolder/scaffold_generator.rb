@@ -26,8 +26,7 @@ module ReactReduxWebpackScaffolder
       # Update config/initializers/assets.rb and add Rails.application.config.assets.precompile += %w( bundle.js )
       config_assets_path = File.join(Rails.root, 'config', 'initializers', 'assets.rb')
       File.open(config_assets_path, 'a+') do |f|
-        byebug
-        if !/Rails.application.config.assets.precompile += %w( bundle.js )/.match(f.read)
+        if !/bundle.js/.match(f.read)
           f.write "Rails.application.config.assets.precompile += %w( bundle.js )"
         end
       end
