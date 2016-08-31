@@ -17,6 +17,7 @@ module ReactReduxWebpackScaffolder
       # Update .gitignore to include app/assets/javascripts, /node_modules
       gitignore_path = File.join(Rails.root, '.gitignore')
       File.open(gitignore_path, 'a') do |f|
+        byebug
         f.write "/app/assets/javascripts\n"
         f.write "/node_modules\n"
       end
@@ -24,6 +25,7 @@ module ReactReduxWebpackScaffolder
       # Update config/initializers/assets.rb and add Rails.application.config.assets.precompile += %w( bundle.js )
       config_assets_path = File.join(Rails.root, 'config', 'initializers', 'assets.rb')
       File.open(config_assets_path, 'a') do |f|
+        byebug
         f.write "Rails.application.config.assets.precompile += %w( bundle.js )"
       end
     end
