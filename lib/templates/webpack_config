@@ -24,7 +24,7 @@ config.module = {
 // this config dicates where compiled bundles end up
 config.output = {
   // this is our app/assets/javascripts directory, which is part of the Sprockets pipeline
-  path: path.join(__dirname, 'app', 'assets', 'javascripts'),
+  path: path.join(__dirname, 'app', 'assets', 'javascripts', 'webpack_bundle'),
 
   // the filename of the compiled bundle, e.g. app/assets/javascripts/bundle.js
   filename: 'bundle.js',
