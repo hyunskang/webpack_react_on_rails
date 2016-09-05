@@ -17,6 +17,9 @@ module ReactReduxWebpackScaffolder
       production_webpack_config_template = File.read(File.join(TEMPLATES_DIR, 'production_webpack_config'))
       create_file "#{Rails.root}/webpack_production.config.js", production_webpack_config_template
 
+      webpack_compiler_rake_task = File.read(File.join(TEMPLATES_DIR, 'webpack_compiler_rake_task'))
+      create_file "#{Rails.root}/lib/tasks/webpack/precompile_assets.rake", webpack_compiler_rake_task
+
       # Update .gitignore to include app/assets/javascripts, /node_modules
       gitignore_path = File.join(Rails.root, '.gitignore')
       File.open(gitignore_path, 'a+') do |f|
