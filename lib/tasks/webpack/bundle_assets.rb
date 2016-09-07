@@ -1,7 +1,11 @@
 namespace :webpack do
   task :bundle_assets => :environment do
-    # Check if Rails.application.config.webpack_config = path exists
+    config_path = Rails.application.config.try(:webpack_config)
+    config_path = config_path ? config_path : './webpack_production.config.js'
+
+    cmd = "webpack --config #{config_path} --progress --colors"
+    
     # Run webpack
-    `webpack --config ./webpack_production.config.js --progress --colors`
+    `#{cmd}`
   end
 end
