@@ -32,3 +32,5 @@ end
 
 
 task default: :test
+
+import "./lib/tasks/bundle_assets.rake"
