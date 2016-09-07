@@ -5,20 +5,11 @@ module ReactReduxWebpackScaffolder
     TEMPLATES_DIR = File.join(File.expand_path(File.dirname(__FILE__)), '../../templates')
 
     def create_scaffold_file
-      # Check if npm is installed or not if not display warning message
-      package_json_template = File.read(File.join(TEMPLATES_DIR, 'package'))
-      package_json_template.gsub!('APPLICATION_NAME', rails_application_name)
+      generate_package_file('package', "#{Rails.root}/package.json")
 
-      create_file "#{Rails.root}/package.json", package_json_template
+      generate_config_file('webpack_development_config', "#{Rails.root}/webpack_development.config.js")
 
-      webpack_config_template = File.read(File.join(TEMPLATES_DIR, 'webpack_config'))
-      create_file "#{Rails.root}/webpack.config.js", webpack_config_template
-
-      production_webpack_config_template = File.read(File.join(TEMPLATES_DIR, 'production_webpack_config'))
-      create_file "#{Rails.root}/webpack_production.config.js", production_webpack_config_template
-
-      webpack_compiler_rake_task = File.read(File.join(TEMPLATES_DIR, 'webpack_compiler_rake_task'))
-      create_file "#{Rails.root}/lib/tasks/webpack/precompile_assets.rake", webpack_compiler_rake_task
+      generate_config_file('webpack_production_config', "#{Rails.root}/webpack_production.config.js")
 
       # Update .gitignore to include app/assets/javascripts, /node_modules
       gitignore_path = File.join(Rails.root, '.gitignore')
@@ -42,6 +33,17 @@ module ReactReduxWebpackScaffolder
 
     def rails_application_name
       Rails.application.class.parent.to_s
+    end
+
+    def generate_package_file(template_name, file_path)
+      template = File.read(File.join(TEMPLATES_DIR, template_name))
+      template.gsub!('APPLICATION_NAME', rails_application_name)
+      create_file file_path, template
+    end
+
+    def generate_config_file(template_name, file_path)
+      template = File.read(File.join(TEMPLATES_DIR, template_name))
+      create_file file_path, template
     end
   end
 end
