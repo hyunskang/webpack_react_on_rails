@@ -1,4 +1,4 @@
-## ReactReduxWebpackScaffolder
+## ReactReduxWebpackScaffolder [![Code Climate](https://codeclimate.com/github/brokenfingers/react_redux_webpack_scaffolder/badges/gpa.svg)](https://codeclimate.com/github/brokenfingers/react_redux_webpack_scaffolder)
 
 Run the generator using the following command: `rails g react_redux_webpack_scaffolder:scaffold`
 
