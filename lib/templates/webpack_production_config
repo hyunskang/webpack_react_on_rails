@@ -2,8 +2,6 @@ var path = require('path');
 var webpack = require('webpack');
 
 var config = module.exports = {
-  context: __dirname,
-
   entry: {
     // The entry point for the application js i.e. './app/frontend/javascripts/app.js'
   }
