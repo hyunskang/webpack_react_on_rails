@@ -15,16 +15,8 @@ module ReactReduxWebpackScaffolder
       gitignore_path = File.join(Rails.root, '.gitignore')
       File.open(gitignore_path, 'a+') do |f|
         if !/\/node_modules\n/.match(f.read)
-          f.write "/app/assets/javascripts/webpack_bundle\n"
+          f.write "/public/assets/\n"
           f.write "/node_modules\n"
-        end
-      end
-
-      # Update config/initializers/assets.rb and add Rails.application.config.assets.precompile += %w( bundle.js )
-      config_assets_path = File.join(Rails.root, 'config', 'initializers', 'assets.rb')
-      File.open(config_assets_path, 'a+') do |f|
-        if !/bundle.js/.match(f.read)
-          f.write "Rails.application.config.assets.precompile += %w( webpack_bundle/bundle.js )"
         end
       end
     end
