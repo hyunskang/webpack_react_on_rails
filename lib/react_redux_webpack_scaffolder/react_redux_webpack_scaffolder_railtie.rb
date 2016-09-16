@@ -1,5 +1,5 @@
 class ReactReduxWebpackScaffolderRailtie < Rails::Railtie
-  initializer "my_gem.configure_view_controller" do |app|
+  initializer "react_redux_webpack_scaffolder.configure_view_controller" do |app|
     ActiveSupport.on_load :action_view do
       include ReactReduxWebpackScaffolder::ActionView::WebpackHelpers
     end
