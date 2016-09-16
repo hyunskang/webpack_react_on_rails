@@ -15,7 +15,7 @@ module WebpackReactOnRails
 
       inject_into_file "config/application.rb", "  config.webpack = {\n    :use_manifest => false,\n    :asset_manifest => {},\n      :common_manifest => {}\n  }\n", before: /^end/
 
-      inject_into_file "config/environments/production.rb", "  config.webpack[:user_manifest] = true", before: /^end/
+      inject_into_file "config/environments/production.rb", "  config.webpack[:user_manifest] = true\n", before: /^end/
 
       # Update .gitignore to include app/assets/javascripts, /node_modules
       gitignore_path = File.join(Rails.root, '.gitignore')
