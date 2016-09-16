@@ -13,18 +13,9 @@ module WebpackReactOnRails
 
       generate_config_file('webpack_initializer', "#{Rails.root}/config/initializers/webpack.rb")
 
-      # Need to add config to production.rb, application.rb
-      # Application.rb
-      # config.webpack = {
-      #   :use_manifest => false,
-      #   :asset_manifest => {},
-      #   :common_manifest => {}
-      # }
+      inject_into_file "config/application.rb", "  config.webpack = {\n    :use_manifest => false,\n    :asset_manifest => {},\n      :common_manifest => {}\n  }\n", before: /^end/
 
-      # production.rb
-      # config.webpack[:use_manifest] = true
-
-      # inject_into_file "config/routes.rb", "  do_stuff(foo)\n", :before => /^end/
+      inject_into_file "config/environments/production.rb", "  config.webpack[:user_manifest] = true", before: /^end/
 
       # Update .gitignore to include app/assets/javascripts, /node_modules
       gitignore_path = File.join(Rails.root, '.gitignore')
