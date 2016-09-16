@@ -1,4 +1,4 @@
-module ReactReduxWebpackScaffolder
+module WebpackReactOnRails
   module ActionView::WebpackHelpers
     include ActionView::Helpers
     include ActionView::Context

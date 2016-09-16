@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class ReactReduxWebpackScaffolderTest < ActiveSupport::TestCase
+class WebpackReactOnRailsTest < ActiveSupport::TestCase
   test "truth" do
-    assert_kind_of Module, ReactReduxWebpackScaffolder
+    assert_kind_of Module, WebpackReactOnRails
   end
 end

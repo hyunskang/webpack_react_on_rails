@@ -1,6 +1,6 @@
 require 'rails/generators'
 
-module ReactReduxWebpackScaffolder
+module WebpackReactOnRails
   class InstallGenerator < Rails::Generators::Base
     TEMPLATES_DIR = File.join(File.expand_path(File.dirname(__FILE__)), '../../templates')
 
@@ -14,8 +14,17 @@ module ReactReduxWebpackScaffolder
       generate_config_file('webpack_initializer', "#{Rails.root}/config/initializers/webpack.rb")
 
       # Need to add config to production.rb, application.rb
+      # Application.rb
+      # config.webpack = {
+      #   :use_manifest => false,
+      #   :asset_manifest => {},
+      #   :common_manifest => {}
+      # }
 
-      # Need to add helper methods to ApplicationHelper
+      # production.rb
+      # config.webpack[:use_manifest] = true
+
+      # inject_into_file "config/routes.rb", "  do_stuff(foo)\n", :before => /^end/
 
       # Update .gitignore to include app/assets/javascripts, /node_modules
       gitignore_path = File.join(Rails.root, '.gitignore')

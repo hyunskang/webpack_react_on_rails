@@ -1,4 +1,4 @@
-module ReactReduxWebpackScaffolder
+module WebpackReactOnRails
   class Railtie < Rails::Railtie
     initializer "railtie.configure_view_controller" do |app|
       ActiveSupport.on_load :action_view do
