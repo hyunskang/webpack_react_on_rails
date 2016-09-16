@@ -1,7 +1,7 @@
 require 'rails/generators'
 
 module ReactReduxWebpackScaffolder
-  class ScaffoldGenerator < Rails::Generators::Base
+  class InstallGenerator < Rails::Generators::Base
     TEMPLATES_DIR = File.join(File.expand_path(File.dirname(__FILE__)), '../../templates')
 
     def create_scaffold_file
