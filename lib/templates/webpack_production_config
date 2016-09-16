@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 
 var config = module.exports = {
   entry: {
@@ -16,8 +17,9 @@ config.module = {
 };
 
 config.output = {
-  path: path.join(__dirname, 'public', 'assets'),
-  filename: '[name].bundle.js',
+  path: path.join(__dirname, 'public', 'assets', 'bundle'),
+  filename: '[name]-bundle-[chunkhash].js',
+  chunkFilename: '[id]-bundle-[chunkhash].js'
 };
 
 config.resolve = {
@@ -31,6 +33,10 @@ config.plugins = [
     compress: {
       warnings: false
     }
+  }),
+  new ChunkManifestPlugin({
+    filename: 'webpack-common-manifest.json',
+    manifestVariable: 'webpackBundleManifest'
   }),
   new webpack.DefinePlugin({
     'process.env': {

@@ -11,11 +11,17 @@ module ReactReduxWebpackScaffolder
 
       generate_config_file('webpack_production_config', "#{Rails.root}/webpack_production.config.js")
 
+      generate_config_file('webpack_initializer', "#{Rails.root}/config/initializer/webpack.rb")
+
+      # Need to add config to production.rb, application.rb
+
+      # Need to add helper methods to ApplicationHelper
+
       # Update .gitignore to include app/assets/javascripts, /node_modules
       gitignore_path = File.join(Rails.root, '.gitignore')
       File.open(gitignore_path, 'a+') do |f|
         if !/\/node_modules\n/.match(f.read)
-          f.write "/public/assets/\n"
+          f.write "/public/assets/javascripts/bundle\n"
           f.write "/node_modules\n"
         end
       end
