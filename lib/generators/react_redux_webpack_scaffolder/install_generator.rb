@@ -11,7 +11,7 @@ module ReactReduxWebpackScaffolder
 
       generate_config_file('webpack_production_config', "#{Rails.root}/webpack_production.config.js")
 
-      generate_config_file('webpack_initializer', "#{Rails.root}/config/initializer/webpack.rb")
+      generate_config_file('webpack_initializer', "#{Rails.root}/config/initializers/webpack.rb")
 
       # Need to add config to production.rb, application.rb
 
