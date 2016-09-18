@@ -59,23 +59,51 @@ config.output = {
 };
 ```
 
-### View Helpers
-
-You can include your webpack bundled javascript using the view helper method:
-
-In `erb`:
-
-``` ruby
-<%= webpack_bundle_tag 'bundle/index' %>
-```
+For the example configuration Rails will server assets from `./app/assets/javascripts/bundle`
 
 ### Production
+
+Add the same entry as in `webpack_development.config.js` to `webpack_production.config.js`
 
 Before deploying to Heroku, set the buildpack:
 
 1. `heroku buildpacks:clear`
 2. `heroku buildpacks:set heroku/nodejs`
 3. `heroku buildpacks:add heroku/ruby --index 2`
+
+### View Helpers
+
+For the given development and production webpack config:
+
+Development:
+
+``` js
+config.output = {
+  // this is our app/assets/javascripts directory, which is part of the Sprockets pipeline
+  path: path.join(__dirname, 'app', 'assets', 'javascript', 'bundle'),
+
+  ...
+};
+```
+
+Production: 
+
+``` js
+config.output = {
+  path: path.join(__dirname, 'public', 'assets', 'bundle'),
+  ...
+};
+```
+
+Rails will serve bundled assets from `./public/assets/bundle` in production and from `./app/assets/javascripts/bundle` in development.
+
+You can include your webpack bundled javascript using the view helper method:
+
+In `erb` for the example configuration above:
+
+``` ruby
+<%= webpack_bundle_tag 'bundle/index' %>
+```
 
 ### Issues:
 
