@@ -1,4 +1,5 @@
 ## Webpack React On Rails
+[![Gem Version](https://badge.fury.io/rb/webpack_react_on_rails.svg)](https://badge.fury.io/rb/webpack_react_on_rails)
 
 This gem was created in order to easily setup webpack on rails. The following guide was used in the creation of the gem: http://clarkdave.net/2015/01/how-to-use-webpack-with-rails/
 
