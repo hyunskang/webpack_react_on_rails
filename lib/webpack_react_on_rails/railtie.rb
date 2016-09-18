@@ -1,6 +1,6 @@
 module WebpackReactOnRails
   class Railtie < Rails::Railtie
-    initializer "webpack_react_on_rails.action_view" do |app|
+    initializer "WebpackReactOnRails.action_view" do |app|
       ActiveSupport.on_load :action_view do
         include ActionView::WebpackHelpers
       end
