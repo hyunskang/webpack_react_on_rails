@@ -7,7 +7,7 @@
 Webpack React On Rails works with Rails 4.1 onwards, and Ruby 2.1 onwards. You can add it to your Gemfile with:
 
 ``` ruby
-gem 'webpack-react-on-rails'
+gem 'webpack_react_on_rails'
 ```
 
 Run bundle to install the gem.
