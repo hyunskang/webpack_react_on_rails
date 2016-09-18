@@ -11,7 +11,7 @@ module WebpackReactOnRails
         path_names[-1] = manifest[path_names.last]
         path_name = path_names.join('/')
 
-        src = "#{compute_asset_host}/assets/#{filename}"
+        src = "#{compute_asset_host}/assets/#{path_name}"
       else
         src = "#{compute_asset_host}/assets/#{bundle}-bundle"
       end
