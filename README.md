@@ -23,7 +23,7 @@ The command will generate the following files and add the necesary configuration
 - `./webpack.production.config.js`
 - `./config/webpack.rb`
 
-Now, the line below to your application layout:
+Now, add the line below to your application layout:
 
 ``` ruby
 <%= webpack_manifest_script %>
