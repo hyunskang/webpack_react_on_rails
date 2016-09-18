@@ -75,6 +75,10 @@ Before deploying to Heroku, set the buildpack:
 2. `heroku buildpacks:set heroku/nodejs`
 3. `heroku buildpacks:add heroku/ruby --index 2`
 
+### Issues:
+
+If you find any issues, please create an `Issue`, and I will address it as soon as possible.
+
 ### TODOS:
 
 1. Improve how webpack is configured for different environtments
