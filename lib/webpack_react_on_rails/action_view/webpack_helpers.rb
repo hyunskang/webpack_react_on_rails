@@ -6,7 +6,10 @@ module WebpackReactOnRails
     def webpack_bundle_tag(bundle)
       if Rails.configuration.webpack[:use_manifest]
         manifest = Rails.configuration.webpack[:asset_manifest]
-        filename = manifest[bundle]
+
+        path_names = bundle.split('/')
+        path_names[-1] = manifest[path_names.last]
+        path_name = path_names.join('/')
 
         src = "#{compute_asset_host}/assets/#{filename}"
       else
