@@ -1,5 +1,7 @@
 ## Webpack React On Rails
 
+This gem was created in order to easily setup webpack on rails. The following guide was used in the creation of the gem: http://clarkdave.net/2015/01/how-to-use-webpack-with-rails/
+
 ### Getting Started
 
 #### Rails
