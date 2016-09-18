@@ -19,8 +19,8 @@ Next, run the generator to create the necessary files and setup the necessary co
 The command will generate the following files and add the necesary configuration to `application.rb` and `production.rb`:
 
 - `./package.json`
-- `./webpack.development.config.js`
-- `./webpack.production.config.js`
+- `./webpack_development.config.js`
+- `./webpack_production.config.js`
 - `./config/webpack.rb`
 
 Now, add the line below to your application layout:
