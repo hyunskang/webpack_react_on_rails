@@ -8,9 +8,9 @@ module WebpackReactOnRails
         manifest = Rails.configuration.webpack[:asset_manifest]
         filename = manifest[bundle]
 
-        src = "#{compute_asset_host}/assets/bundle/#{filename}"
+        src = "#{compute_asset_host}/assets/#{filename}"
       else
-        src = "#{compute_asset_host}/assets/bundle/#{bundle}-bundle"
+        src = "#{compute_asset_host}/assets/#{bundle}-bundle"
       end
 
       javascript_include_tag(src)
