@@ -1,5 +1,5 @@
 module WebpackReactOnRails
-  module WebpackHelpers
+  module ActionView::WebpackHelpers
     include ActionView::Helpers
     include ActionView::Context
 
