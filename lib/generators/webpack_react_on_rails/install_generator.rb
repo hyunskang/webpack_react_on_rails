@@ -13,7 +13,7 @@ module WebpackReactOnRails
 
       generate_config_file('webpack_initializer', "#{Rails.root}/config/initializers/webpack.rb")
 
-      inject_into_file "config/application.rb", "  config.webpack = {\n    :use_manifest => false,\n    :asset_manifest => {},\n      :common_manifest => {}\n  }\n", before: /^end/
+      inject_into_file "config/application.rb", "\n    config.webpack = {\n      :use_manifest => false,\n      :asset_manifest => {},\n      :common_manifest => {}\n    }\n", after: "class Application < Rails::Application"
 
       inject_into_file "config/environments/production.rb", "  config.webpack[:use_manifest] = true\n", before: /^end/
 
