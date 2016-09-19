@@ -34,6 +34,8 @@ Now, add the line below to your application layout:
 
 #### Webpack
 
+Run `npm install` to install all the node modules needed.
+
 Add an entry path to `webpack.*.config.js`:
 
 For example, adding the entry javascript file `index.js`:
@@ -47,7 +49,7 @@ entry: {
 
 Run webpack using the following command: 
 
-`node_modules/.bin/webpack --config webpack.development.config.js --watch --colors`
+`node_modules/.bin/webpack --config webpack_development.config.js --watch --colors`
 
 Bundled assets will be located in the directory specified in:
 
@@ -109,8 +111,6 @@ In `erb` for the example configuration above:
 ### Issues:
 
 If you find any issues, please create an `Issue`, and I will address it as soon as possible.
-
-- Configuration generated in `application.rb` is not defined inside the class
 
 ### TODOS:
 
