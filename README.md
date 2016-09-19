@@ -110,6 +110,8 @@ In `erb` for the example configuration above:
 
 If you find any issues, please create an `Issue`, and I will address it as soon as possible.
 
+- Configuration generated in `application.rb` is not defined inside the class
+
 ### TODOS:
 
 1. Improve how webpack is configured for different environtments
