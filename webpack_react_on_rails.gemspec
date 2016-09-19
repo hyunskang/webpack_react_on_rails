@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = WebpackReactOnRails::VERSION
   s.authors     = ["Hyun Sik Kang"]
   s.email       = ["hyunsikk91@gmail.com"]
-  s.homepage    = "https://github.com/brokenfingers/webpack-react-on-rails/tree/master/lib"
+  s.homepage    = "https://github.com/brokenfingers/webpack-react-on-rails"
   s.summary     = "Scaffolder for React, Redux, and Webpack"
   s.description = "Easily add React, Redux, and Webpack using a command line."
   s.license     = "MIT"
@@ -18,6 +18,11 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
   s.required_ruby_version = '>= 2.1.0'
 
-  s.add_dependency "rails", ">= 4.1.0", "< 5.1"
+  # Dev dependencies
+  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'pry-rails'
+
+  # Gem dependencies
+  s.add_dependency 'rails', '>= 4.1.0', '< 5.1'
 
 end
