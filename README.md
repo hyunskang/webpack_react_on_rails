@@ -1,5 +1,6 @@
 ## Webpack React On Rails
 [![Gem Version](https://badge.fury.io/rb/webpack_react_on_rails.svg)](https://badge.fury.io/rb/webpack_react_on_rails)
+[![Build Status](https://travis-ci.org/brokenfingers/webpack_react_on_rails.svg?branch=fix%2Fallow-any-bundle-name-for-viewhelpers)](https://travis-ci.org/brokenfingers/webpack_react_on_rails)
 
 This gem was created in order to easily setup webpack on rails. The following guide was used in the creation of the gem: http://clarkdave.net/2015/01/how-to-use-webpack-with-rails/
 
@@ -35,7 +36,13 @@ Now, add the line below to your application layout:
 
 #### Webpack
 
+<<<<<<< HEAD
 Add entries to `main.config.js`:
+=======
+Run `npm install` to install all the node modules needed.
+
+Add an entry path to `webpack.*.config.js`:
+>>>>>>> origin/master
 
 For example, adding the entry javascript file `index.js`:
 
@@ -47,7 +54,7 @@ entry: {
 
 The same entry will be used for both development and production.
 
-Run webpack using the following command: 
+Run webpack using the following command:
 
 `node_modules/.bin/webpack --config ./config/webpack/development.config.js --watch --colors`
 
@@ -87,7 +94,7 @@ config.output = {
 };
 ```
 
-Production: 
+Production:
 
 ``` js
 config.output = {
