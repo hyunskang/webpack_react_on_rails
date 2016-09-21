@@ -41,13 +41,7 @@ Now, add the line below to your application layout:
 
 #### Webpack
 
-<<<<<<< HEAD
 Add entries to `main.config.js`:
-=======
-Run `npm install` to install all the node modules needed.
-
-Add an entry path to `webpack.*.config.js`:
->>>>>>> origin/master
 
 For example, adding the entry javascript file `index.js`:
 
