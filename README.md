@@ -2,6 +2,7 @@
 [![Gem Version](https://badge.fury.io/rb/webpack_react_on_rails.svg)](https://badge.fury.io/rb/webpack_react_on_rails)
 [![Code Climate](https://codeclimate.com/github/brokenfingers/webpack_react_on_rails/badges/gpa.svg)](https://codeclimate.com/github/brokenfingers/webpack_react_on_rails)
 [![Build Status](https://travis-ci.org/brokenfingers/webpack_react_on_rails.svg?branch=master)](https://travis-ci.org/brokenfingers/webpack_react_on_rails)
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 ![Rails](https://github.com/brokenfingers/webpack_react_on_rails/blob/master/rails.png)
 ![Webpack](https://github.com/brokenfingers/webpack_react_on_rails/blob/master/webpack.png)
@@ -115,5 +116,3 @@ In `erb` for the example configuration above:
 ### Issues:
 
 If you find any issues, please create an `Issue` or PR, and I will address/review it as soon as possible.
-
-This project uses MIT-LICENSE.
