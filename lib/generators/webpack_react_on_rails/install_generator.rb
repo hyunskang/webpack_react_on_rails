@@ -15,10 +15,14 @@ module WebpackReactOnRails
         inside 'initializers' do
           copy_file "../../../templates/config/initializers/webpack.rb", "webpack.rb"
         end
+
+        inside 'webpack' do
+          copy_file "../../../templates/config/webpack/main.config.js", "main.config.js"
+          copy_file "../../../templates/config/webpack/development.config.js", "development.config.js"
+          copy_file "../../../templates/config/webpack/production.config.js", "production.config.js"
+        end
       end
 
-      copy_file "../templates/config/webpack/webpack_development.config.js", "./webpack_development.config.js"
-      copy_file "../templates/config/webpack/webpack_production.config.js", "./webpack_production.config.js"
       copy_file "../templates/package.json", "./package.json"
 
       # Update .gitignore to include app/assets/javascripts, /node_modules

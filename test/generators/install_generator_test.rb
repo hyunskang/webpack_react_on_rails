@@ -12,8 +12,9 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     run_generator
 
     assert_file "./config/initializers/webpack.rb"
-    assert_file "./webpack_development.config.js"
-    assert_file "./webpack_development.config.js"
+    assert_file "./config/webpack/main.config.js"
+    assert_file "./config/webpack/development.config.js"
+    assert_file "./config/webpack/production.config.js"
     assert_file "./package.json"
 
     cleanup_files
