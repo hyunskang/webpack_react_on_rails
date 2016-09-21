@@ -3,3 +3,5 @@ before_install:
 - rvm use 2.2.2
 install: bundle install
 script: bundle exec rake test
+notifications:
+  email: false
