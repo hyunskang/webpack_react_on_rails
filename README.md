@@ -3,6 +3,10 @@
 [![Code Climate](https://codeclimate.com/github/brokenfingers/webpack_react_on_rails/badges/gpa.svg)](https://codeclimate.com/github/brokenfingers/webpack_react_on_rails)
 [![Build Status](https://travis-ci.org/brokenfingers/webpack_react_on_rails.svg?branch=fix%2Fallow-any-bundle-name-for-viewhelpers)](https://travis-ci.org/brokenfingers/webpack_react_on_rails)
 
+![Rails](https://github.com/brokenfingers/webpack_react_on_rails/blob/master/rails.png)
+![Webpack](https://github.com/brokenfingers/webpack_react_on_rails/blob/master/webpack.png)
+![React](https://github.com/brokenfingers/webpack_react_on_rails/blob/master/react.png)
+
 This gem was created in order to easily setup webpack on rails. The following guide was used in the creation of the gem: http://clarkdave.net/2015/01/how-to-use-webpack-with-rails/
 
 ### Getting Started
