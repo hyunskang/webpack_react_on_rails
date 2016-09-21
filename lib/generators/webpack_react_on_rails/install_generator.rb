@@ -2,20 +2,24 @@ require 'rails/generators'
 
 module WebpackReactOnRails
   class InstallGenerator < Rails::Generators::Base
-    TEMPLATES_DIR = File.join(File.expand_path(File.dirname(__FILE__)), '../../templates')
+    source_root File.expand_path('../templates', __FILE__)
 
     def create_scaffold_file
-      generate_package_file('package', "#{Rails.root}/package.json")
+      inside 'config' do
+        inject_into_file "application.rb", "\n    config.webpack = {\n      :use_manifest => false,\n      :asset_manifest => {},\n      :common_manifest => {}\n    }\n", after: "class Application < Rails::Application"
 
-      generate_config_file('webpack_development_config', "#{Rails.root}/webpack_development.config.js")
+        inside 'environments' do
+          inject_into_file "production.rb", "  config.webpack[:use_manifest] = true\n", before: /^end/
+        end
 
-      generate_config_file('webpack_production_config', "#{Rails.root}/webpack_production.config.js")
+        inside 'initializers' do
+          copy_file "../../../templates/config/initializers/webpack.rb", "webpack.rb"
+        end
+      end
 
-      generate_config_file('webpack_initializer', "#{Rails.root}/config/initializers/webpack.rb")
-
-      inject_into_file "config/application.rb", "\n    config.webpack = {\n      :use_manifest => false,\n      :asset_manifest => {},\n      :common_manifest => {}\n    }\n", after: "class Application < Rails::Application"
-
-      inject_into_file "config/environments/production.rb", "  config.webpack[:use_manifest] = true\n", before: /^end/
+      copy_file "../templates/config/webpack/webpack_development.config.js", File.join(Rails.root, "webpack_development.config.js")
+      copy_file "../templates/config/webpack/webpack_production.config.js", File.join(Rails.root, "webpack_production.config.js")
+      copy_file "../templates/package.json", File.join(Rails.root, "package.json")
 
       # Update .gitignore to include app/assets/javascripts, /node_modules
       gitignore_path = File.join(Rails.root, '.gitignore')
@@ -25,23 +29,6 @@ module WebpackReactOnRails
           f.write "/node_modules\n"
         end
       end
-    end
-
-    private
-
-    def rails_application_name
-      Rails.application.class.parent.to_s
-    end
-
-    def generate_package_file(template_name, file_path)
-      template = File.read(File.join(TEMPLATES_DIR, template_name))
-      template.gsub!('APPLICATION_NAME', rails_application_name)
-      create_file file_path, template
-    end
-
-    def generate_config_file(template_name, file_path)
-      template = File.read(File.join(TEMPLATES_DIR, template_name))
-      create_file file_path, template
     end
   end
 end

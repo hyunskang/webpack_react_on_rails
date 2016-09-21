@@ -7,12 +7,6 @@ require "webpack_react_on_rails"
 
 module Dummy
   class Application < Rails::Application
-    config.webpack = {
-      :use_manifest => false,
-      :asset_manifest => {},
-      :common_manifest => {}
-    }
-
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

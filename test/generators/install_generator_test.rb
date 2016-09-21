@@ -3,11 +3,16 @@ require 'generators/webpack_react_on_rails/install_generator'
 
 class InstallGeneratorTest < Rails::Generators::TestCase
   tests ::WebpackReactOnRails::InstallGenerator
-  destination File.join(Rails.root, "tmp")
+  destination File.expand_path("../tmp", File.dirname(__FILE__))
+  setup :prepare_destination
 
   test "create the correct configuration files" do
     around_hook {
-      # Need to add test
+      run_generator
+
+      assert_file "config/initializers/webpack.rb"
+      assert_file "./webpack_development.config.js"
+      assert_file "./webpack_development.config.js"
     }
   end
 
@@ -39,20 +44,7 @@ require "webpack_react_on_rails"
 
 module Dummy
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
 
-    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
-    # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
-
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
-
-    # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
   end
 end
 APPLICATION
@@ -67,29 +59,7 @@ APPLICATION
       f.write(
 <<-PRODUCTION.strip_heredoc
 Rails.application.configure do
-  config.cache_classes = true
 
-  config.eager_load = true
-
-  config.consider_all_requests_local       = false
-  config.action_controller.perform_caching = true
-
-  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
-
-  config.assets.js_compressor = :uglifier
-
-  config.assets.compile = false
-
-  config.assets.digest = true
-
-  config.log_level = :debug
-
-  config.i18n.fallbacks = true
-  config.active_support.deprecation = :notify
-
-  config.log_formatter = ::Logger::Formatter.new
-
-  config.active_record.dump_schema_after_migration = false
 end
 PRODUCTION
       )
