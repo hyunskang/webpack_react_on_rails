@@ -17,9 +17,9 @@ module WebpackReactOnRails
         end
       end
 
-      copy_file "../templates/config/webpack/webpack_development.config.js", File.join(Rails.root, "webpack_development.config.js")
-      copy_file "../templates/config/webpack/webpack_production.config.js", File.join(Rails.root, "webpack_production.config.js")
-      copy_file "../templates/package.json", File.join(Rails.root, "package.json")
+      copy_file "../templates/config/webpack/webpack_development.config.js", "./webpack_development.config.js"
+      copy_file "../templates/config/webpack/webpack_production.config.js", "./webpack_production.config.js"
+      copy_file "../templates/package.json", "./package.json"
 
       # Update .gitignore to include app/assets/javascripts, /node_modules
       gitignore_path = File.join(Rails.root, '.gitignore')

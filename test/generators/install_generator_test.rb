@@ -3,28 +3,26 @@ require 'generators/webpack_react_on_rails/install_generator'
 
 class InstallGeneratorTest < Rails::Generators::TestCase
   tests ::WebpackReactOnRails::InstallGenerator
-  destination File.expand_path("../tmp", File.dirname(__FILE__))
+  destination File.expand_path("../dummy/tmp", File.dirname(__FILE__))
   setup :prepare_destination
 
   test "create the correct configuration files" do
-    around_hook {
-      run_generator
+    setup_files
 
-      assert_file "config/initializers/webpack.rb"
-      assert_file "./webpack_development.config.js"
-      assert_file "./webpack_development.config.js"
-    }
+    run_generator
+
+    assert_file "./config/initializers/webpack.rb"
+    assert_file "./webpack_development.config.js"
+    assert_file "./webpack_development.config.js"
+    assert_file "./package.json"
+
+    cleanup_files
   end
 
   private
 
-  def around_hook
-    before_hook
-    yield
-    after_hook
-  end
   # Creates all necessary test files
-  def before_hook
+  def setup_files
     create_application_rb
     create_production_rb
   end
@@ -67,19 +65,7 @@ PRODUCTION
   end
 
   # Removes all test files created
-  def after_hook
+  def cleanup_files
     FileUtils.rm_rf(File.join(Rails.root, "tmp"))
-
-    init_webpack_path = File.join(Rails.root, "config", "initializers", "webpack.rb")
-    File.delete(init_webpack_path) if File.file?(init_webpack_path)
-
-    webpack_dev_config_path = File.join(Rails.root, "webpack_development.config.js")
-    File.delete(webpack_dev_config_path) if File.file?(webpack_dev_config_path)
-
-    webpack_prod_config_path = File.join(Rails.root, "webpack_production.config.js")
-    File.delete(webpack_prod_config_path) if File.file?(webpack_prod_config_path)
-
-    package_json_path = File.join(Rails.root, "package.json")
-    File.delete(package_json_path) if File.file?(package_json_path)
   end
 end
