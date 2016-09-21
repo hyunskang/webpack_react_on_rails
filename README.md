@@ -1,7 +1,7 @@
 ## Webpack React On Rails
 [![Gem Version](https://badge.fury.io/rb/webpack_react_on_rails.svg)](https://badge.fury.io/rb/webpack_react_on_rails)
 [![Code Climate](https://codeclimate.com/github/brokenfingers/webpack_react_on_rails/badges/gpa.svg)](https://codeclimate.com/github/brokenfingers/webpack_react_on_rails)
-[![Build Status](https://travis-ci.org/brokenfingers/webpack_react_on_rails.svg?branch=fix%2Fallow-any-bundle-name-for-viewhelpers)](https://travis-ci.org/brokenfingers/webpack_react_on_rails)
+[![Build Status](https://travis-ci.org/brokenfingers/webpack_react_on_rails.svg?branch=master)](https://travis-ci.org/brokenfingers/webpack_react_on_rails)
 
 ![Rails](https://github.com/brokenfingers/webpack_react_on_rails/blob/master/rails.png)
 ![Webpack](https://github.com/brokenfingers/webpack_react_on_rails/blob/master/webpack.png)
