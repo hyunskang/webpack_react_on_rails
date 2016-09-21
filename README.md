@@ -23,8 +23,9 @@ Next, run the generator to create the necessary files and setup the necessary co
 The command will generate the following files and add the necesary configuration to `application.rb` and `production.rb`:
 
 - `./package.json`
-- `./webpack_development.config.js`
-- `./webpack_production.config.js`
+- `./config/webpack/main.config.js`
+- `./config/webpack/development.config.js`
+- `./config/webpack/production.config.js`
 - `./config/webpack.rb`
 
 Now, add the line below to your application layout:
@@ -35,39 +36,42 @@ Now, add the line below to your application layout:
 
 #### Webpack
 
+<<<<<<< HEAD
+Add entries to `main.config.js`:
+=======
 Run `npm install` to install all the node modules needed.
 
 Add an entry path to `webpack.*.config.js`:
+>>>>>>> origin/master
 
 For example, adding the entry javascript file `index.js`:
 
 ``` js
 entry: {
-  webpackDev: 'webpack/hot/only-dev-server',
   index: './app/frontend/javascripts/index.js'
 }
 ```
 
-Run webpack using the following command: 
+The same entry will be used for both development and production.
 
-`node_modules/.bin/webpack --config webpack_development.config.js --watch --colors`
+Run webpack using the following command:
+
+`node_modules/.bin/webpack --config ./config/webpack/development.config.js --watch --colors`
 
 Bundled assets will be located in the directory specified in:
 
 ``` js
 config.output = {
   // this is our app/assets/javascripts directory, which is part of the Sprockets pipeline
-  path: path.join(__dirname, 'app', 'assets', 'javascript', 'bundle'),
+  path: path.join(__dirname, '../../app', 'assets', 'javascript', 'bundle'),
 
   ...
 };
 ```
 
-For the example configuration Rails will server assets from `./app/assets/javascripts/bundle`
+For the example configuration Rails will serve assets from `app/assets/javascripts/bundle`
 
 ### Production
-
-Add the same entry as in `webpack_development.config.js` to `webpack_production.config.js`
 
 Before deploying to Heroku, set the buildpack:
 
@@ -84,22 +88,22 @@ Development:
 ``` js
 config.output = {
   // this is our app/assets/javascripts directory, which is part of the Sprockets pipeline
-  path: path.join(__dirname, 'app', 'assets', 'javascript', 'bundle'),
+  path: path.join(__dirname, '../../app', 'assets', 'javascript', 'bundle'),
 
   ...
 };
 ```
 
-Production: 
+Production:
 
 ``` js
 config.output = {
-  path: path.join(__dirname, 'public', 'assets', 'bundle'),
+  path: path.join(__dirname, '../../public', 'assets', 'bundle'),
   ...
 };
 ```
 
-Rails will serve bundled assets from `./public/assets/bundle` in production and from `./app/assets/javascripts/bundle` in development.
+Rails will serve bundled assets from `public/assets/bundle` in production and from `app/assets/javascripts/bundle` in development.
 
 You can include your webpack bundled javascript using the view helper method:
 
@@ -111,10 +115,6 @@ In `erb` for the example configuration above:
 
 ### Issues:
 
-If you find any issues, please create an `Issue`, and I will address it as soon as possible.
-
-### TODOS:
-
-1. Improve how webpack is configured for different environtments
+If you find any issues, please create an `Issue` or PR, and I will address/review it as soon as possible.
 
 This project uses MIT-LICENSE.

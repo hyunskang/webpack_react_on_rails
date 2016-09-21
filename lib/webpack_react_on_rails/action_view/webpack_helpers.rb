@@ -13,7 +13,7 @@ module WebpackReactOnRails
 
         src = "#{compute_asset_host}/assets/#{path_name}"
       else
-        src = "#{compute_asset_host}/assets/#{bundle}-bundle"
+        src = "#{compute_asset_host}/assets/#{bundle}"
       end
 
       javascript_include_tag(src)
