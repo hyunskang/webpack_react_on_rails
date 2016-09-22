@@ -113,6 +113,12 @@ In `erb` for the example configuration above:
 <%= webpack_bundle_tag 'bundle/index' %>
 ```
 
+You will need to add `bundle/index.js` to `Rails.application.config.assets.precompile` in `config/initializers/assets.rb` i.e.
+
+```
+Rails.application.config.assets.precompile += %w( bundle/index-bundle.js )
+```
+
 ### Issues:
 
 If you find any issues, please create an `Issue` or PR, and I will address/review it as soon as possible.
